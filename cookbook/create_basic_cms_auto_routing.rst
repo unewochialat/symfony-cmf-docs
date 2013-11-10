@@ -105,7 +105,7 @@ node content of the PHPCR content repository:
 
 .. code-block:: bash
 
-    $ php app/console doctrine:phpcr:dbal:init
+    $ php app/console doctrine:phpcr:init:dbal
 
 
 .. note::
@@ -290,7 +290,8 @@ service container configuration:
         services:
             acme.basic_cms.phpcr.initializer:
                 class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
-                arguments: [ "/cms/pages", "/cms/posts", "/cms/routes" ]
+                arguments: 
+                    - [ "/cms/pages", "/cms/posts", "/cms/routes" ]
                 tags:
                     - { name: doctrine_phpcr.initializer }
 
